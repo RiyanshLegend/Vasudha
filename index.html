@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Home & AI Automation</title>
+
+    <meta name="theme-color" content="#0A192F">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ========================================= -->
+<!-- BACKGROUND -->
+<!-- ========================================= -->
+
+<div class="background">
+
+    <div class="gradient"></div>
+
+    <div class="particles"></div>
+
+    <div class="grid"></div>
+
+</div>
+
+
+
+<!-- ========================================= -->
+<!-- LOADING SCREEN -->
+<!-- ========================================= -->
+
+<div id="loader">
+
+    <div class="loaderBox">
+
+        <div class="loaderLogo">
+
+            <i class="fa-solid fa-house-signal"></i>
+
+        </div>
+
+        <h1>
+
+            SMART HOME
+
+        </h1>
+
+        <h2>
+
+            AI AUTOMATION
+
+        </h2>
+
+        <div class="loadingBar">
+
+            <div class="loadingFill"></div>
+
+        </div>
+
+        <p id="loadingText">
+
+            Initializing AI...
+
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- ========================================= -->
+<!-- LOGIN PAGE -->
+<!-- ========================================= -->
+
+<section id="loginPage">
+
+<div class="loginGlass">
+
+<div class="logoCircle">
+
+<i class="fa-solid fa-house-signal"></i>
+
+</div>
+
+<h1>
+
+Smart Home
+
+</h1>
+
+<h2>
+
+& AI Automation
+
+</h2>
+
+<p>
+
+An Intelligent Home Management System
+
+</p>
+
+<div class="loginForm">
+
+<label>
+
+Select House
+
+</label>
+
+<select id="houseSelect">
+
+<option>House 1</option>
+
+<option>House 2</option>
+
+<option>House 3</option>
+
+<option>House 4</option>
+
+<option>House 5</option>
+
+</select>
+
+<label>
+
+Password
+
+</label>
+
+<div class="passwordBox">
+
+<input
+type="password"
+id="password"
+placeholder="Enter Password">
+
+<button id="togglePassword">
+
+<i class="fa-solid fa-eye"></i>
+
+</button>
+
+</div>
+
+<p id="error"></p>
+
+<button id="unlockButton" onclick="login()">
+
+<i class="fa-solid fa-lock-open"></i>
+
+Unlock Home
+
+</button>
+
+</div>
+
+
+
+<div class="loginBottom">
+
+<div>
+
+<i class="fa-solid fa-shield-halved"></i>
+
+Secure Login
+
+</div>
+
+<div>
+
+<i class="fa-solid fa-microchip"></i>
+
+AI Powered
+
+</div>
+
+<div>
+
+<i class="fa-solid fa-wifi"></i>
+
+Connected
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ========================================= -->
+<!-- NOTIFICATION CONTAINER -->
+<!-- ========================================= -->
+
+<div id="notificationArea"></div>
+
+
+
+<!-- ========================================= -->
+<!-- DASHBOARD -->
+<!-- Hidden Until Login -->
+<!-- ========================================= -->
+
+<section id="dashboard">
+
+<!-- TOP BAR -->
+
+<header>
+
+<div class="leftTop">
+
+<h1>
+
+<i class="fa-solid fa-house"></i>
+
+Smart Home Dashboard
+
+</h1>
+
+<p id="greeting">
+
+Welcome Home
+
+</p>
+
+</div>
+
+
+
+<div class="rightTop">
+
+<div class="topCard">
+
+<i class="fa-solid fa-calendar-days"></i>
+
+<span id="liveDate"></span>
+
+</div>
+
+<div class="topCard">
+
+<i class="fa-solid fa-clock"></i>
+
+<span id="clock"></span>
+
+</div>
+
+</div>
+
+</header>
+
+
+
+<!-- STATUS BAR -->
+
+<div class="statusBar">
+
+<div class="status">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+Security
+
+<span>
+
+Secure
+
+</span>
+
+</div>
+
+<div class="status">
+
+<i class="fa-solid fa-wifi"></i>
+
+Internet
+
+<span>
+
+Online
+
+</span>
+
+</div>
+
+<div class="status">
+
+<i class="fa-solid fa-robot"></i>
+
+AI
+
+<span>
+
+Connected
+
+</span>
+
+</div>
+
+<div class="status">
+
+<i class="fa-solid fa-cloud"></i>
+
+Weather
+
+<span>
+
+Live
+
+</span>
+
+</div>
+
+</div>
+
+  <div class="dashboardContent">
+
+    <!-- ========================================= -->
+<!-- LEFT PANEL -->
+<!-- ========================================= -->
+
+<div class="leftPanel">
+
+    <!-- WEATHER CARD -->
+
+    <div class="glassCard weatherCard">
+
+        <div class="cardTitle">
+            <i class="fa-solid fa-cloud-sun"></i>
+            Live Weather
+        </div>
+
+        <div class="weatherMain">
+
+            <div class="weatherIcon">
+                ☀️
+            </div>
+
+            <div class="weatherTemp" id="temperature">
+                --°C
+            </div>
+
+        </div>
+
+        <div class="weatherDetails">
+
+            <div>
+                <span>Humidity</span>
+                <strong id="humidity">--%</strong>
+            </div>
+
+            <div>
+                <span>Wind</span>
+                <strong id="windSpeed">-- km/h</strong>
+            </div>
+
+            <div>
+                <span>Condition</span>
+                <strong id="weatherCondition">Loading...</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- TEMPERATURE -->
+
+    <div class="glassCard">
+
+        <div class="cardTitle">
+
+            <i class="fa-solid fa-temperature-half"></i>
+
+            Indoor Temperature
+
+        </div>
+
+        <div class="bigValue" id="indoorTemp">
+
+            27°C
+
+        </div>
+
+        <div class="statusGood">
+
+            Comfortable
+
+        </div>
+
+    </div>
+
+
+
+    <!-- POWER -->
+
+    <div class="glassCard">
+
+        <div class="cardTitle">
+
+            <i class="fa-solid fa-bolt"></i>
+
+            Power Usage
+
+        </div>
+
+        <div class="bigValue" id="power">
+
+            2.1 kWh
+
+        </div>
+
+        <div class="progressBar">
+
+            <div class="progressFill" id="powerFill"></div>
+
+        </div>
+
+        <p id="powerStatus">
+
+            Excellent
+
+        </p>
+
+    </div>
+
+
+
+    <!-- WATER -->
+
+    <div class="glassCard">
+
+        <div class="cardTitle">
+
+            <i class="fa-solid fa-droplet"></i>
+
+            Water Tank
+
+        </div>
+
+        <div class="bigValue" id="water">
+
+            82%
+
+        </div>
+
+        <div class="progressBar">
+
+            <div class="progressFill waterFill" id="waterFill"></div>
+
+        </div>
+
+        <p id="waterStatus">
+
+            Normal
+
+        </p>
+
+    </div>
+
+</div>
+
+
+
+
+
+<!-- ========================================= -->
+<!-- CENTER PANEL -->
+<!-- ========================================= -->
+
+<div class="centerPanel">
+
+<div class="glassCard smartHouseCard">
+
+<h2>
+
+🏠 Smart Home
+
+</h2>
+
+<p>
+
+Click any hotspot to control your home.
+
+</p>
+
+<div class="houseContainer">
+
+<img
+src="assets/smart-home.png"
+alt="Smart Home"
+class="houseImage">
+
+<button
+class="hotspot doorHotspot"
+onclick="toggleDoor()">
+
+🚪
+
+</button>
+
+<button
+class="hotspot lightHotspot"
+onclick="toggleLight()">
+
+💡
+
+</button>
+
+<button
+class="hotspot cameraHotspot">
+
+📹
+
+</button>
+
+<button
+class="hotspot waterHotspot">
+
+💧
+
+</button>
+
+<button
+class="hotspot solarHotspot">
+
+☀️
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+<!-- ========================================= -->
+<!-- RIGHT PANEL -->
+<!-- ========================================= -->
+
+<div class="rightPanel">
+
+<!-- DOOR -->
+
+<div class="glassCard">
+
+<div class="cardTitle">
+
+🚪 Door
+
+</div>
+
+<div class="deviceStatus">
+
+<span id="doorStatus">
+
+Locked
+
+</span>
+
+</div>
+
+<button
+class="actionButton"
+onclick="toggleDoor()">
+
+Toggle Door
+
+</button>
+
+</div>
+
+
+
+<!-- LIGHT -->
+
+<div class="glassCard">
+
+<div class="cardTitle">
+
+💡 Lights
+
+</div>
+
+<div class="deviceStatus">
+
+<span id="lightStatus">
+
+OFF
+
+</span>
+
+</div>
+
+<button
+class="actionButton"
+onclick="toggleLight()">
+
+Toggle Lights
+
+</button>
+
+</div>
+
+
+
+<!-- CAMERA -->
+
+<div class="glassCard">
+
+<div class="cardTitle">
+
+📹 Security Camera
+
+</div>
+
+<div class="cameraWindow">
+
+<div class="scanLine"></div>
+
+<div class="cameraText">
+
+ONLINE
+
+</div>
+
+</div>
+
+<p id="cameraStatus">
+
+Monitoring Home
+
+</p>
+
+</div>
+
+
+
+<!-- FIRE -->
+
+<div class="glassCard">
+
+<div class="cardTitle">
+
+🔥 Fire Detection
+
+</div>
+
+<div
+class="fireSafe"
+id="fireStatus">
+
+No Fire Detected
+
+</div>
+
+<button
+class="dangerButton"
+onclick="emergency()">
+
+Emergency SOS
+
+</button>
+
+</div>
+
+
+
+<!-- SYSTEM -->
+
+<div class="glassCard">
+
+<div class="cardTitle">
+
+🛡 System Health
+
+</div>
+
+<div class="bigValue">
+
+99.9%
+
+</div>
+
+<p id="systemHealth">
+
+Excellent
+
+</p>
+
+</div>
+
+</div>
+
+
+
+
+
+</div>
+
+<!-- dashboardContent ends here -->
+
+
+<!-- MAIN CONTENT STARTS HERE -->
+
+<div class="dashboardContent">
+
+  <!-- ========================================= -->
+<!-- FLOATING AI ASSISTANT -->
+<!-- ========================================= -->
+
+<div id="assistant">
+
+    <div class="assistantHeader">
+
+        <div class="assistantAvatar">
+            🤖
+        </div>
+
+        <div>
+
+            <h3>AIVA</h3>
+
+            <span>Artificial Intelligent Virtual Assistant</span>
+
+        </div>
+
+    </div>
+
+    <div id="chat">
+
+        <div class="aiMessage">
+            👋 Welcome Home!
+        </div>
+
+        <div class="aiMessage">
+            All systems are functioning normally.
+        </div>
+
+    </div>
+
+    <div class="assistantInput">
+
+        <input
+            id="aiInput"
+            type="text"
+            placeholder="Ask AIVA anything...">
+
+        <button onclick="sendAI()">
+
+            <i class="fa-solid fa-paper-plane"></i>
+
+        </button>
+
+        <button onclick="startVoiceRecognition()">
+
+            <i class="fa-solid fa-microphone"></i>
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- ========================================= -->
+<!-- ANALYTICS -->
+<!-- ========================================= -->
+
+<section class="analytics">
+
+    <div class="glassCard">
+
+        <h2>
+
+            📈 Today's Energy Usage
+
+        </h2>
+
+        <canvas id="powerChart"></canvas>
+
+    </div>
+
+    <div class="glassCard">
+
+        <h2>
+
+            💧 Water Consumption
+
+        </h2>
+
+        <canvas id="waterChart"></canvas>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================================= -->
+<!-- QUICK ACTIONS -->
+<!-- ========================================= -->
+
+<section class="quickActions">
+
+<button onclick="toggleDoor()">
+
+🚪 Lock / Unlock
+
+</button>
+
+<button onclick="toggleLight()">
+
+💡 Lights
+
+</button>
+
+<button onclick="fetchWeather()">
+
+🌤 Refresh Weather
+
+</button>
+
+<button onclick="emergency()">
+
+🚨 SOS
+
+</button>
+
+</section>
+
+
+
+<!-- ========================================= -->
+<!-- SETTINGS MODAL -->
+<!-- ========================================= -->
+
+<div id="settingsModal" class="modal">
+
+<div class="modalContent">
+
+<h2>
+
+⚙ Settings
+
+</h2>
+
+<div class="setting">
+
+<label>
+
+Dark Mode
+
+</label>
+
+<input
+type="checkbox"
+id="darkSwitch">
+
+</div>
+
+<div class="setting">
+
+<label>
+
+Notifications
+
+</label>
+
+<input
+type="checkbox"
+checked>
+
+</div>
+
+<div class="setting">
+
+<label>
+
+AI Voice
+
+</label>
+
+<input
+type="checkbox"
+checked>
+
+</div>
+
+<button onclick="closeSettings()">
+
+Close
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- ========================================= -->
+<!-- FLOATING SETTINGS BUTTON -->
+<!-- ========================================= -->
+
+<button
+id="settingsButton"
+onclick="openSettings()">
+
+⚙
+
+</button>
+
+
+
+<!-- ========================================= -->
+<!-- FOOTER -->
+<!-- ========================================= -->
+
+<footer>
+
+<div class="footerLeft">
+
+🏠 Smart Home & AI Automation
+
+</div>
+
+<div class="footerCenter">
+
+Powered by Artificial Intelligence
+
+</div>
+
+<div class="footerRight">
+
+Made by
+
+<strong>
+
+Riyansh • Kiaan • Mohammad
+
+</strong>
+
+</div>
+
+</footer>
+
+
+
+<!-- ========================================= -->
+<!-- SCRIPTS -->
+<!-- ========================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
