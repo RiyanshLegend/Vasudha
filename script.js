@@ -100,6 +100,23 @@ window.addEventListener("DOMContentLoaded",()=>{
 
     checkSavedLogin();
 
+    // AI Enter key
+    const aiInput=document.getElementById("aiInput");
+
+    if(aiInput){
+
+        aiInput.addEventListener("keydown",(e)=>{
+
+            if(e.key==="Enter"){
+
+                sendAI();
+
+            }
+
+        });
+
+    }
+
     setInterval(updateClock,1000);
 
     setInterval(updateGreeting,60000);
