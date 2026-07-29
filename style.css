@@ -1,0 +1,1983 @@
+/* =======================================================
+   SMART HOME & AI AUTOMATION
+   STYLE.CSS - PART 1
+   Designed for Vasudha 2026
+======================================================= */
+
+/* ---------- GOOGLE FONT ---------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ---------- VARIABLES ---------- */
+
+:root{
+
+    --bg:#050816;
+    --bg2:#0B122B;
+
+    --glass:rgba(255,255,255,.08);
+
+    --border:rgba(255,255,255,.15);
+
+    --blue:#00C6FF;
+    --cyan:#00E5FF;
+    --purple:#7A5FFF;
+
+    --green:#38EF7D;
+    --red:#FF4D6D;
+    --yellow:#FFD93D;
+
+    --white:#FFFFFF;
+    --text:#DCE7FF;
+
+    --radius:24px;
+
+    --shadow:
+    0 10px 40px rgba(0,198,255,.18);
+
+    --transition:.35s ease;
+
+}
+
+/* ---------- RESET ---------- */
+
+*{
+
+    margin:0;
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    color:var(--white);
+
+    background:var(--bg);
+
+    overflow-x:hidden;
+
+    min-height:100vh;
+
+}
+
+/* ---------- SCROLLBAR ---------- */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#08101F;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:linear-gradient(
+    var(--blue),
+    var(--purple));
+
+    border-radius:100px;
+
+}
+
+/* =======================================================
+   BACKGROUND
+======================================================= */
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    z-index:-999;
+
+}
+
+.gradient{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    radial-gradient(circle at 20% 20%,rgba(0,198,255,.25),transparent 35%),
+    radial-gradient(circle at 80% 20%,rgba(122,95,255,.18),transparent 30%),
+    radial-gradient(circle at 50% 80%,rgba(0,229,255,.15),transparent 35%),
+    linear-gradient(135deg,#050816,#0B122B);
+
+}
+
+/* ---------- GRID ---------- */
+
+.grid{
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+
+    linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+
+    linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+
+    background-size:60px 60px;
+
+    animation:gridMove 18s linear infinite;
+
+}
+
+/* ---------- PARTICLES ---------- */
+
+.particles{
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+
+    radial-gradient(circle,#00C6FF 1px,transparent 1px),
+
+    radial-gradient(circle,#7A5FFF 1px,transparent 1px),
+
+    radial-gradient(circle,#00E5FF 1px,transparent 1px);
+
+    background-size:
+
+    140px 140px,
+    220px 220px,
+    170px 170px;
+
+    opacity:.45;
+
+    animation:floatParticles 22s linear infinite;
+
+}
+
+/* =======================================================
+   GLASS
+======================================================= */
+
+.glassCard,
+
+.loginGlass{
+
+    background:var(--glass);
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(20px);
+
+    -webkit-backdrop-filter:blur(20px);
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+}
+
+/* =======================================================
+   LOADER
+======================================================= */
+
+#loader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#050816;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    z-index:99999;
+
+    transition:.8s;
+
+}
+
+.loaderBox{
+
+    text-align:center;
+
+}
+
+.loaderLogo{
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin:auto;
+
+    font-size:54px;
+
+    background:linear-gradient(
+    135deg,
+    var(--blue),
+    var(--purple));
+
+    box-shadow:
+
+    0 0 35px rgba(0,198,255,.7);
+
+    animation:pulse 2s infinite;
+
+}
+
+.loaderBox h1{
+
+    margin-top:30px;
+
+    font-size:42px;
+
+    letter-spacing:3px;
+
+}
+
+.loaderBox h2{
+
+    color:var(--cyan);
+
+    font-weight:500;
+
+    margin-top:8px;
+
+}
+
+.loadingBar{
+
+    width:340px;
+
+    height:10px;
+
+    margin:35px auto;
+
+    background:rgba(255,255,255,.1);
+
+    border-radius:100px;
+
+    overflow:hidden;
+
+}
+
+.loadingFill{
+
+    width:0;
+
+    height:100%;
+
+    background:linear-gradient(
+    90deg,
+    var(--blue),
+    var(--cyan));
+
+    animation:loading 3s forwards;
+
+}
+
+#loadingText{
+
+    opacity:.8;
+
+}
+
+/* =======================================================
+   LOGIN PAGE
+======================================================= */
+
+#loginPage{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+}
+
+.loginGlass{
+
+    width:520px;
+
+    max-width:95%;
+
+    padding:45px;
+
+    text-align:center;
+
+}
+
+.logoCircle{
+
+    width:110px;
+
+    height:110px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:46px;
+
+    color:white;
+
+    background:
+
+    linear-gradient(
+    135deg,
+    var(--blue),
+    var(--purple));
+
+    box-shadow:
+
+    0 0 40px rgba(0,198,255,.55);
+
+}
+
+.loginGlass h1{
+
+    font-size:42px;
+
+    margin-top:25px;
+
+}
+
+.loginGlass h2{
+
+    color:var(--cyan);
+
+    margin-top:5px;
+
+    font-weight:500;
+
+}
+
+.loginGlass p{
+
+    margin-top:15px;
+
+    color:var(--text);
+
+}
+
+/* =======================================================
+   FORM
+======================================================= */
+
+.loginForm{
+
+    margin-top:35px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+label{
+
+    text-align:left;
+
+    font-size:15px;
+
+    color:var(--text);
+
+}
+
+select,
+
+input{
+
+    width:100%;
+
+    padding:15px 18px;
+
+    border-radius:14px;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    background:rgba(255,255,255,.05);
+
+    color:white;
+
+    font-size:15px;
+
+    outline:none;
+
+    transition:var(--transition);
+
+}
+
+select:focus,
+
+input:focus{
+
+    border-color:var(--cyan);
+
+    box-shadow:
+
+    0 0 18px rgba(0,229,255,.4);
+
+}
+
+.passwordBox{
+
+    position:relative;
+
+}
+
+.passwordBox button{
+
+    position:absolute;
+
+    right:8px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    background:none;
+
+    border:none;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
+
+/* =======================================================
+   BUTTONS
+======================================================= */
+
+button{
+
+    cursor:pointer;
+
+    border:none;
+
+    transition:var(--transition);
+
+}
+
+#unlockButton,
+
+.actionButton,
+
+.dangerButton{
+
+    padding:15px;
+
+    border-radius:16px;
+
+    font-weight:600;
+
+    color:white;
+
+    font-size:16px;
+
+}
+
+#unlockButton{
+
+    background:
+
+    linear-gradient(
+    135deg,
+    var(--blue),
+    var(--purple));
+
+}
+
+.actionButton{
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #00C853,
+    #00E676);
+
+}
+
+.dangerButton{
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #FF1744,
+    #FF5252);
+
+}
+
+button:hover{
+
+    transform:
+
+    translateY(-3px)
+    scale(1.03);
+
+    box-shadow:
+
+    0 12px 28px rgba(0,198,255,.35);
+
+}
+
+/* =======================================================
+   LOGIN FOOTER
+======================================================= */
+
+.loginBottom{
+
+    margin-top:35px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+}
+
+.loginBottom div{
+
+    flex:1;
+
+    padding:12px;
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,.05);
+
+    font-size:14px;
+
+}
+
+/* =======================================================
+   ANIMATIONS
+======================================================= */
+
+@keyframes pulse{
+
+    0%,100%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.08);
+
+    }
+
+}
+
+@keyframes loading{
+
+    from{
+
+        width:0;
+
+    }
+
+    to{
+
+        width:100%;
+
+    }
+
+}
+
+@keyframes floatParticles{
+
+    from{
+
+        transform:translateY(0);
+
+    }
+
+    to{
+
+        transform:translateY(-200px);
+
+    }
+
+}
+
+@keyframes gridMove{
+
+    from{
+
+        transform:translateY(0);
+
+    }
+
+    to{
+
+        transform:translateY(60px);
+
+    }
+
+}
+
+/* =======================================================
+   DASHBOARD
+======================================================= */
+
+#dashboard{
+
+    display:none;
+
+    padding:30px;
+
+    min-height:100vh;
+
+}
+
+header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+}
+
+.leftTop h1{
+
+    font-size:34px;
+
+    font-weight:700;
+
+}
+
+.leftTop p{
+
+    color:var(--text);
+
+    margin-top:8px;
+
+}
+
+.rightTop{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.topCard{
+
+    background:var(--glass);
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(15px);
+
+    padding:14px 22px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:white;
+
+    box-shadow:var(--shadow);
+
+}
+
+.statusBar{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+    margin-bottom:35px;
+
+}
+
+.status{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    padding:16px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    transition:.3s;
+
+}
+
+.status:hover{
+
+    transform:translateY(-5px);
+
+    border-color:var(--cyan);
+
+}
+
+.status span{
+
+    color:var(--green);
+
+    font-weight:600;
+
+}
+
+/* =======================================================
+   DASHBOARD GRID
+======================================================= */
+
+.dashboardContent{
+
+    display:grid;
+
+    grid-template-columns:320px 1fr 320px;
+
+    gap:30px;
+
+    align-items:start;
+
+}
+
+.leftPanel,
+
+.rightPanel{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+}
+
+/* =======================================================
+   GLASS CARDS
+======================================================= */
+
+.glassCard{
+
+    padding:24px;
+
+    transition:.35s;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.glassCard:hover{
+
+    transform:translateY(-6px);
+
+    border-color:rgba(0,198,255,.45);
+
+    box-shadow:
+
+    0 0 35px rgba(0,198,255,.28);
+
+}
+
+.glassCard::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-50%;
+
+    left:-60%;
+
+    width:120%;
+
+    height:220%;
+
+    background:
+
+    linear-gradient(
+
+    transparent,
+
+    rgba(255,255,255,.08),
+
+    transparent);
+
+    transform:rotate(25deg);
+
+    transition:.8s;
+
+}
+
+.glassCard:hover::before{
+
+    left:120%;
+
+}
+
+/* =======================================================
+   CARD TITLES
+======================================================= */
+
+.cardTitle{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:18px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:white;
+
+}
+
+.bigValue{
+
+    font-size:48px;
+
+    font-weight:700;
+
+    margin:12px 0;
+
+    color:var(--cyan);
+
+}
+
+.statusGood{
+
+    color:var(--green);
+
+    font-weight:600;
+
+}
+
+/* =======================================================
+   WEATHER
+======================================================= */
+
+.weatherCard{
+
+    background:
+
+    linear-gradient(
+
+    160deg,
+
+    rgba(0,198,255,.18),
+
+    rgba(122,95,255,.15));
+
+}
+
+.weatherMain{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin:25px 0;
+
+}
+
+.weatherIcon{
+
+    font-size:70px;
+
+    animation:floatIcon 3s ease-in-out infinite;
+
+}
+
+.weatherTemp{
+
+    font-size:52px;
+
+    font-weight:700;
+
+}
+
+.weatherDetails{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:10px;
+
+    text-align:center;
+
+}
+
+.weatherDetails span{
+
+    display:block;
+
+    color:var(--text);
+
+    font-size:13px;
+
+}
+
+.weatherDetails strong{
+
+    display:block;
+
+    margin-top:8px;
+
+}
+
+/* =======================================================
+   PROGRESS BAR
+======================================================= */
+
+.progressBar{
+
+    width:100%;
+
+    height:12px;
+
+    background:rgba(255,255,255,.08);
+
+    border-radius:100px;
+
+    overflow:hidden;
+
+    margin-top:18px;
+
+}
+
+.progressFill{
+
+    width:75%;
+
+    height:100%;
+
+    background:
+
+    linear-gradient(
+
+    90deg,
+
+    var(--blue),
+
+    var(--cyan));
+
+    border-radius:100px;
+
+    animation:progressGlow 3s infinite;
+
+}
+
+.waterFill{
+
+    width:82%;
+
+}
+
+/* =======================================================
+   SMART HOUSE
+======================================================= */
+
+.smartHouseCard{
+
+    min-height:760px;
+
+    text-align:center;
+
+}
+
+.smartHouseCard h2{
+
+    font-size:34px;
+
+    margin-bottom:10px;
+
+}
+
+.houseContainer{
+
+    position:relative;
+
+    margin-top:35px;
+
+}
+
+.houseImage{
+
+    width:100%;
+
+    max-width:650px;
+
+    display:block;
+
+    margin:auto;
+
+    filter:
+
+    drop-shadow(0 0 40px rgba(0,198,255,.35));
+
+    animation:houseFloat 5s ease-in-out infinite;
+
+}
+
+/* =======================================================
+   HOTSPOTS
+======================================================= */
+
+.hotspot{
+
+    position:absolute;
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    border:none;
+
+    font-size:26px;
+
+    cursor:pointer;
+
+    color:white;
+
+    background:
+
+    radial-gradient(circle,
+
+    var(--cyan),
+
+    var(--blue));
+
+    box-shadow:
+
+    0 0 20px rgba(0,198,255,.7);
+
+    animation:hotspotPulse 2s infinite;
+
+}
+
+.hotspot:hover{
+
+    transform:scale(1.18);
+
+}
+
+.doorHotspot{
+
+    left:47%;
+
+    top:70%;
+
+}
+
+.lightHotspot{
+
+    left:28%;
+
+    top:33%;
+
+}
+
+.cameraHotspot{
+
+    right:26%;
+
+    top:28%;
+
+}
+
+.waterHotspot{
+
+    left:18%;
+
+    top:8%;
+
+}
+
+.solarHotspot{
+
+    right:17%;
+
+    top:8%;
+
+}
+
+/* =======================================================
+   DEVICE STATUS
+======================================================= */
+
+.deviceStatus{
+
+    font-size:32px;
+
+    font-weight:700;
+
+    color:var(--cyan);
+
+    margin:20px 0;
+
+}
+
+/* =======================================================
+   CAMERA
+======================================================= */
+
+.cameraWindow{
+
+    height:180px;
+
+    border-radius:18px;
+
+    background:
+
+    linear-gradient(
+
+    135deg,
+
+    #111827,
+
+    #1F2937);
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin:20px 0;
+
+}
+
+.scanLine{
+
+    position:absolute;
+
+    width:100%;
+
+    height:3px;
+
+    background:rgba(0,255,255,.8);
+
+    animation:scanMove 3s linear infinite;
+
+}
+
+.cameraText{
+
+    font-size:26px;
+
+    color:#00FF99;
+
+    letter-spacing:3px;
+
+}
+
+/* =======================================================
+   FIRE STATUS
+======================================================= */
+
+.fireSafe{
+
+    color:var(--green);
+
+    font-weight:700;
+
+    font-size:24px;
+
+    margin:25px 0;
+
+}
+
+/* =======================================================
+   ANIMATIONS
+======================================================= */
+
+@keyframes houseFloat{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+}
+
+@keyframes hotspotPulse{
+
+    0%,100%{
+
+        box-shadow:0 0 15px rgba(0,198,255,.6);
+
+    }
+
+    50%{
+
+        box-shadow:0 0 35px rgba(0,229,255,1);
+
+    }
+
+}
+
+@keyframes scanMove{
+
+    from{
+
+        top:-5%;
+
+    }
+
+    to{
+
+        top:105%;
+
+    }
+
+}
+
+@keyframes progressGlow{
+
+    0%,100%{
+
+        filter:brightness(1);
+
+    }
+
+    50%{
+
+        filter:brightness(1.5);
+
+    }
+
+}
+
+@keyframes floatIcon{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+}
+
+/* =======================================================
+   TABLET
+======================================================= */
+
+@media(max-width:1200px){
+
+.dashboardContent{
+
+grid-template-columns:1fr;
+
+}
+
+.leftPanel,
+
+.rightPanel{
+
+flex-direction:row;
+
+flex-wrap:wrap;
+
+}
+
+.leftPanel .glassCard,
+
+.rightPanel .glassCard{
+
+flex:1 1 300px;
+
+}
+
+.statusBar{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+/* ==========================================================
+   PART 3
+   AI ASSISTANT • FOOTER • SETTINGS • NOTIFICATIONS
+   RESPONSIVE • ANIMATIONS
+==========================================================*/
+
+/* ===========================
+   AI ASSISTANT
+=========================== */
+
+#assistant{
+
+    position:fixed;
+
+    right:30px;
+
+    bottom:30px;
+
+    width:380px;
+
+    height:560px;
+
+    background:rgba(12,18,35,.82);
+
+    backdrop-filter:blur(25px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    border-radius:28px;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.45),
+    0 0 35px rgba(0,198,255,.25);
+
+    overflow:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+
+    z-index:999;
+
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+.assistantHeader{
+
+    padding:22px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    background:linear-gradient(
+    135deg,
+    rgba(0,198,255,.25),
+    rgba(122,95,255,.18));
+
+}
+
+.assistantAvatar{
+
+    width:64px;
+
+    height:64px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:30px;
+
+    background:linear-gradient(
+    135deg,
+    var(--blue),
+    var(--purple));
+
+    animation:avatarPulse 3s infinite;
+
+}
+
+.assistantHeader h3{
+
+    font-size:24px;
+
+}
+
+.assistantHeader span{
+
+    opacity:.7;
+
+    font-size:13px;
+
+}
+
+/* ===========================
+   CHAT
+=========================== */
+
+#chat{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    padding:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+.aiMessage{
+
+    max-width:85%;
+
+    background:rgba(255,255,255,.08);
+
+    padding:14px 18px;
+
+    border-radius:18px;
+
+    animation:fadeIn .4s;
+
+}
+
+.userMessage{
+
+    align-self:flex-end;
+
+    background:linear-gradient(
+    135deg,
+    var(--blue),
+    var(--purple));
+
+}
+
+/* ===========================
+   INPUT
+=========================== */
+
+.assistantInput{
+
+    display:flex;
+
+    gap:12px;
+
+    padding:18px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+.assistantInput input{
+
+    flex:1;
+
+}
+
+.assistantInput button{
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:50%;
+
+    background:linear-gradient(
+    135deg,
+    var(--blue),
+    var(--purple));
+
+}
+
+/* ===========================
+   QUICK ACTIONS
+=========================== */
+
+.quickActions{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:18px;
+
+    margin-top:35px;
+
+}
+
+.quickActions button{
+
+    padding:18px;
+
+    border-radius:18px;
+
+    color:white;
+
+    background:linear-gradient(
+    135deg,
+    #162447,
+    #1F4068);
+
+}
+
+/* ===========================
+   ANALYTICS
+=========================== */
+
+.analytics{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:25px;
+
+    margin-top:35px;
+
+}
+
+.analytics canvas{
+
+    margin-top:20px;
+
+}
+
+/* ===========================
+   SETTINGS
+=========================== */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.65);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:5000;
+
+}
+
+.modalContent{
+
+    width:520px;
+
+    background:rgba(10,15,30,.95);
+
+    border-radius:28px;
+
+    padding:35px;
+
+    border:1px solid rgba(255,255,255,.1);
+
+}
+
+.setting{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin:24px 0;
+
+}
+
+#settingsButton{
+
+    position:fixed;
+
+    bottom:35px;
+
+    left:35px;
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    font-size:26px;
+
+    background:linear-gradient(
+    135deg,
+    var(--blue),
+    var(--purple));
+
+    animation:rotateGear 10s linear infinite;
+
+}
+
+/* ===========================
+   NOTIFICATIONS
+=========================== */
+
+.notification{
+
+    position:fixed;
+
+    top:30px;
+
+    right:-420px;
+
+    width:320px;
+
+    padding:18px;
+
+    border-radius:20px;
+
+    background:rgba(0,198,255,.16);
+
+    border-left:5px solid var(--cyan);
+
+    backdrop-filter:blur(20px);
+
+    transition:.45s;
+
+    z-index:9999;
+
+}
+
+.notification.show{
+
+    right:30px;
+
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+
+footer{
+
+    margin-top:70px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    padding:30px 0;
+
+    color:rgba(255,255,255,.75);
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+/* ===========================
+   RIPPLE
+=========================== */
+
+.ripple{
+
+    position:absolute;
+
+    width:15px;
+
+    height:15px;
+
+    border-radius:50%;
+
+    background:white;
+
+    transform:translate(-50%,-50%);
+
+    animation:ripple .6s linear;
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:900px){
+
+#assistant{
+
+width:95%;
+
+right:2.5%;
+
+left:2.5%;
+
+height:500px;
+
+bottom:15px;
+
+}
+
+.analytics{
+
+grid-template-columns:1fr;
+
+}
+
+.quickActions{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+header{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+}
+
+.rightTop{
+
+width:100%;
+
+flex-wrap:wrap;
+
+}
+
+footer{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+}
+
+@media(max-width:650px){
+
+.statusBar{
+
+grid-template-columns:1fr;
+
+}
+
+.loginGlass{
+
+padding:30px;
+
+}
+
+.logoCircle{
+
+width:90px;
+
+height:90px;
+
+font-size:36px;
+
+}
+
+.leftTop h1{
+
+font-size:28px;
+
+}
+
+.bigValue{
+
+font-size:36px;
+
+}
+
+}
+
+/* ===========================
+   ANIMATIONS
+=========================== */
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes avatarPulse{
+
+0%,100%{
+
+transform:scale(1);
+
+box-shadow:0 0 20px rgba(0,198,255,.5);
+
+}
+
+50%{
+
+transform:scale(1.08);
+
+box-shadow:0 0 45px rgba(0,198,255,.9);
+
+}
+
+}
+
+@keyframes ripple{
+
+from{
+
+opacity:.8;
+
+transform:translate(-50%,-50%) scale(0);
+
+}
+
+to{
+
+opacity:0;
+
+transform:translate(-50%,-50%) scale(20);
+
+}
+
+}
+
+@keyframes rotateGear{
+
+from{
+
+transform:rotate(0deg);
+
+}
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+@keyframes glow{
+
+0%,100%{
+
+box-shadow:0 0 20px rgba(0,198,255,.4);
+
+}
+
+50%{
+
+box-shadow:0 0 45px rgba(0,198,255,.9);
+
+}
+
+}
+
+.glow{
+
+animation:glow 2s infinite;
+
+}
