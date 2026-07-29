@@ -431,9 +431,131 @@ function toggleLight(){}
 
 function emergency(){}
 
-function sendAI(){}
+function sendAI() {
 
-function startVoiceRecognition(){}
+    const input = document.getElementById("aiInput");
+    const chat = document.getElementById("chat");
+
+    const message = input.value.trim();
+
+    if (message === "") return;
+
+    // User message
+    const user = document.createElement("div");
+    user.className = "userMessage";
+    user.innerHTML = message;
+
+    chat.appendChild(user);
+
+    input.value = "";
+
+    chat.scrollTop = chat.scrollHeight;
+
+    // AI Reply
+    setTimeout(() => {
+
+        const ai = document.createElement("div");
+        ai.className = "aiMessage";
+
+        const text = message.toLowerCase();
+
+        if (text.includes("hello") || text.includes("hi")) {
+
+            ai.innerHTML = "👋 Hello! I'm AIVA. How can I help you?";
+
+        }
+
+        else if (text.includes("weather")) {
+
+            ai.innerHTML = "🌤 Fetching live weather...";
+
+            fetchWeather();
+
+        }
+
+        else if (text.includes("door")) {
+
+            toggleDoor();
+
+            ai.innerHTML = "🚪 Door status updated.";
+
+        }
+
+        else if (text.includes("light")) {
+
+            toggleLight();
+
+            ai.innerHTML = "💡 Lights toggled.";
+
+        }
+
+        else if (text.includes("temperature")) {
+
+            const temp =
+                document.getElementById("temperature").innerHTML;
+
+            ai.innerHTML =
+                "🌡 Current temperature is " + temp;
+
+        }
+
+        else if (text.includes("water")) {
+
+            ai.innerHTML =
+                "💧 Water tank is at " +
+                document.getElementById("water").innerHTML;
+
+        }
+
+        else if (text.includes("power")) {
+
+            ai.innerHTML =
+                "⚡ Current usage is " +
+                document.getElementById("power").innerHTML;
+
+        }
+
+        else {
+
+            ai.innerHTML =
+                "🤖 Sorry, I don't understand that yet.";
+
+        }
+
+        chat.appendChild(ai);
+
+        chat.scrollTop = chat.scrollHeight;
+
+    },700);
+
+}
+
+function startVoiceRecognition(){
+
+    if(!('webkitSpeechRecognition' in window)){
+
+        alert("Voice Recognition is not supported in this browser.");
+
+        return;
+
+    }
+
+    const recognition = new webkitSpeechRecognition();
+
+    recognition.lang="en-US";
+
+    recognition.start();
+
+    recognition.onresult=function(event){
+
+        document.getElementById("aiInput").value=
+        event.results[0][0].transcript;
+
+        sendAI();
+
+    };
+
+}
 
 function createCharts(){}
 
