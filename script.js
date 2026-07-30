@@ -184,61 +184,12 @@ function initializeLoader(){
    LOGIN
 ==========================================================*/
 
-function login(){
 
-    const house=app.houseSelect.value;
-
-    const password=app.password.value.trim();
-
-    if(password===PASSWORDS[house]){
-
-        state.loggedIn=true;
-
-        state.currentHouse=house;
-
-        localStorage.setItem("loggedIn","true");
-
-        localStorage.setItem("house",house);
-
-        app.loginPage.style.display="none";
-
-        app.dashboard.style.display="block";
-
-        initializeDashboard();
-
-        showNotification("🏠 Welcome Home");
-
-        return;
-
-    }
-
-    app.error.textContent="Incorrect Password";
-
-    app.password.value="";
-
-    shake(app.password);
-
-}
 
 /* ==========================================================
    AUTO LOGIN
 ==========================================================*/
 
-function checkSavedLogin(){
-
-    if(localStorage.getItem("loggedIn")!=="true") return;
-
-    state.loggedIn=true;
-
-    state.currentHouse=localStorage.getItem("house");
-
-    app.loginPage.style.display="none";
-
-    app.dashboard.style.display="block";
-
-    initializeDashboard();
-
-}
 
 /* ==========================================================
    LOGOUT
