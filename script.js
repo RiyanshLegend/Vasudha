@@ -105,20 +105,46 @@ const state={
    PASSWORD DATABASE
 ==========================================================*/
 
-const PASSWORDS={
+const PASSWORDS = {
 
     "House 1":"1234",
-
     "House 2":"2345",
-
     "House 3":"3456",
-
     "House 4":"4567",
-
     "House 5":"5678"
 
 };
 
+
+function login() {
+
+    const house = document.getElementById("houseSelect").value;
+    const password = document.getElementById("password").value.trim();
+    const error = document.getElementById("error");
+
+    if (password === PASSWORDS[house]) {
+
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("dashboard").style.display = "block";
+
+        localStorage.setItem("loggedIn", "true");
+        localStorage.setItem("house", house);
+
+        if (typeof initializeDashboard === "function") {
+            initializeDashboard();
+        }
+
+        if (typeof showNotification === "function") {
+            showNotification("🏠 Welcome Home!");
+        }
+
+    } else {
+
+        error.textContent = "❌ Incorrect Password";
+        document.getElementById("password").value = "";
+
+    }
+}
 /* ==========================================================
    START APPLICATION
 ==========================================================*/
