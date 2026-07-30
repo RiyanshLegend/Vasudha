@@ -93,123 +93,21 @@
 <!-- LOGIN PAGE -->
 <!-- ========================================= -->
 
-<section id="loginPage">
+<div id="loginPage">
+    <h2>Login</h2>
 
-<div class="loginGlass">
+    <input type="text" id="username" placeholder="Username">
 
-<div class="logoCircle">
+    <input type="password" id="password" placeholder="Password">
 
-<i class="fa-solid fa-house-signal"></i>
+    <button onclick="login()">Login</button>
 
+    <p id="error"></p>
 </div>
 
-<h1>
-
-Smart Home
-
-</h1>
-
-<h2>
-
-& AI Automation
-
-</h2>
-
-<p>
-
-An Intelligent Home Management System
-
-</p>
-
-<div class="loginForm">
-
-<label>
-
-Select House
-
-</label>
-
-<select id="houseSelect">
-
-<option>House 1</option>
-
-<option>House 2</option>
-
-<option>House 3</option>
-
-<option>House 4</option>
-
-<option>House 5</option>
-
-</select>
-
-<label>
-
-Password
-
-</label>
-
-<div class="passwordBox">
-
-<input
-type="password"
-id="password"
-placeholder="Enter Password">
-
-<button id="togglePassword">
-
-<i class="fa-solid fa-eye"></i>
-
-</button>
-
+<div id="dashboard" style="display:none;">
+    <h1>Welcome! Login Successful 🎉</h1>
 </div>
-
-<p id="error"></p>
-
-<button id="unlockButton" onclick="login()">
-
-<i class="fa-solid fa-lock-open"></i>
-
-Unlock Home
-
-</button>
-
-</div>
-
-
-
-<div class="loginBottom">
-
-<div>
-
-<i class="fa-solid fa-shield-halved"></i>
-
-Secure Login
-
-</div>
-
-<div>
-
-<i class="fa-solid fa-microchip"></i>
-
-AI Powered
-
-</div>
-
-<div>
-
-<i class="fa-solid fa-wifi"></i>
-
-Connected
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
 
 
 <!-- ========================================= -->
