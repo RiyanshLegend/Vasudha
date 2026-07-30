@@ -20,8 +20,6 @@ const PASSWORDS = {
 
 console.log("JS WORKING");
 
-<button onclick="login()">Login</button>
-
 const app = {
 
     // Loader
@@ -116,33 +114,9 @@ const state={
    PASSWORD DATABASE
 ==========================================================*/
 
-const PASSWORDS = {
-
-    "House 1":"1234",
-    "House 2":"2345",
-    "House 3":"3456",
-    "House 4":"4567",
-    "House 5":"5678"
-
-};
 
 
-function login() {
 
-    const house = document.getElementById("houseSelect").value;
-    const password = document.getElementById("password").value;
-
-    if(password === PASSWORDS[house]) {
-
-        document.getElementById("loginPage").style.display = "none";
-        document.getElementById("dashboard").style.display = "block";
-
-    } else {
-
-        document.getElementById("error").innerHTML = "❌ Incorrect Password";
-
-    }
-}
 /* ==========================================================
    START APPLICATION
 ==========================================================*/
