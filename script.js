@@ -17,9 +17,20 @@ const PASSWORDS = {
     "House 4":"4567",
     "House 5":"5678"
 };
+function login() {
+    const house = document.getElementById("houseSelect").value;
+    const password = document.getElementById("password").value.trim();
+    const error = document.getElementById("error");
 
-console.log("JS WORKING");
-
+    if (password === PASSWORDS[house]) {
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("dashboard").style.display = "block";
+        error.textContent = "";
+    } else {
+        error.textContent = "❌ Incorrect Password";
+    }
+}
+console.log("JS.WORKING"); 
 const app = {
 
     // Loader
