@@ -10,6 +10,17 @@
 /* ==========================================================
    DOM ELEMENTS
 ==========================================================*/
+const PASSWORDS = {
+    "House 1":"1234",
+    "House 2":"2345",
+    "House 3":"3456",
+    "House 4":"4567",
+    "House 5":"5678"
+};
+
+console.log("JS WORKING");
+
+<button onclick="login()">Login</button>
 
 const app = {
 
@@ -119,29 +130,16 @@ const PASSWORDS = {
 function login() {
 
     const house = document.getElementById("houseSelect").value;
-    const password = document.getElementById("password").value.trim();
-    const error = document.getElementById("error");
+    const password = document.getElementById("password").value;
 
-    if (password === PASSWORDS[house]) {
+    if(password === PASSWORDS[house]) {
 
         document.getElementById("loginPage").style.display = "none";
         document.getElementById("dashboard").style.display = "block";
 
-        localStorage.setItem("loggedIn", "true");
-        localStorage.setItem("house", house);
-
-        if (typeof initializeDashboard === "function") {
-            initializeDashboard();
-        }
-
-        if (typeof showNotification === "function") {
-            showNotification("🏠 Welcome Home!");
-        }
-
     } else {
 
-        error.textContent = "❌ Incorrect Password";
-        document.getElementById("password").value = "";
+        document.getElementById("error").innerHTML = "❌ Incorrect Password";
 
     }
 }
