@@ -23,7 +23,10 @@ function login() {
     const username = document.getElementById("username").value.trim();
     const password = document.getElementById("password").value.trim();
     const error = document.getElementById("error");
-
+console.log("House:", house);
+console.log("Username:", username);
+console.log("Password:", password);
+console.log("Expected:", USERS[house]);
     if (
         username === USERS[house].username &&
         password === USERS[house].password
