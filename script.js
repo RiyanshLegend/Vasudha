@@ -5280,19 +5280,4 @@ window.addEventListener(
 
 console.log("✅ Part 5A4 Loaded");
 
-const USERNAME = "admin";
-const PASSWORD = "1234";
 
-function login() {
-    const username = document.getElementById("username").value.trim();
-    const password = document.getElementById("password").value.trim();
-    const error = document.getElementById("error");
-
-    if (username === USERNAME && password === PASSWORD) {
-        document.getElementById("loginPage").style.display = "none";
-        document.getElementById("dashboard").style.display = "block";
-        error.textContent = "";
-    } else {
-        error.textContent = "❌ Invalid username or password";
-    }
-}
