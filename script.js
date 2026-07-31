@@ -25,16 +25,32 @@ function login() {
 
     console.log("House:", house);
     console.log("Username:", username);
-    console.log("Password:", password);
-    console.log("User object:", USERS[house]);
 
     if (
         username === USERS[house].username &&
         password === USERS[house].password
     ) {
+
         alert("SUCCESS");
+
+        state.loggedIn = true;
+        state.currentHouse = house;
+
+        // Hide login
+        app.loginPage.style.display = "none";
+
+        // Show dashboard
+        app.dashboard.style.display = "block";
+
+        // Start dashboard
+        initializeDashboard();
+
+        showNotification("🏠 Welcome to " + house);
+
     } else {
+
         alert("FAILED");
+
     }
 }
 console.log("JS.WORKING"); 
