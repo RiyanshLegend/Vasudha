@@ -155,7 +155,7 @@ function initializeApp(){
 
     initializeDarkMode();
 
-    checkSavedLogin();
+    // checkSavedLogin();
 
     console.log("Smart Home Engine Loaded");
 
