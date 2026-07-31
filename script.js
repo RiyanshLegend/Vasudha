@@ -10,15 +10,16 @@
 /* ==========================================================
    DOM ELEMENTS
 ==========================================================*/
-const PASSWORDS = {
-    "House 1":"1234",
-    "House 2":"2345",
-    "House 3":"3456",
-    "House 4":"4567",
-    "House 5":"5678"
+const USERS = {
+    "House 1": { username: "house1", password: "1234" },
+    "House 2": { username: "house2", password: "2345" },
+    "House 3": { username: "house3", password: "3456" },
+    "House 4": { username: "house4", password: "4567" },
+    "House 5": { username: "house5", password: "5678" }
+};
 };
 function login() {
-    const house = document.getElementById("houseSelect").value;
+    const username = document.getElementById("username").value.trim();
     const password = document.getElementById("password").value.trim();
     const error = document.getElementById("error");
 
