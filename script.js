@@ -19,17 +19,28 @@ const USERS = {
 };
 };
 function login() {
+
+    const house = document.getElementById("houseSelect").value;
     const username = document.getElementById("username").value.trim();
     const password = document.getElementById("password").value.trim();
     const error = document.getElementById("error");
 
-    if (password === PASSWORDS[house]) {
+    if (
+        username === USERS[house].username &&
+        password === USERS[house].password
+    ) {
+
         document.getElementById("loginPage").style.display = "none";
         document.getElementById("dashboard").style.display = "block";
+
         error.textContent = "";
+
     } else {
-        error.textContent = "❌ Incorrect Password";
+
+        error.textContent = "❌ Incorrect Username or Password";
+
     }
+
 }
 console.log("JS.WORKING"); 
 const app = {
