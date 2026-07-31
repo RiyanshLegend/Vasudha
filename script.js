@@ -22,27 +22,20 @@ function login() {
     const house = document.getElementById("houseSelect").value;
     const username = document.getElementById("username").value.trim();
     const password = document.getElementById("password").value.trim();
-    const error = document.getElementById("error");
-console.log("House:", house);
-console.log("Username:", username);
-console.log("Password:", password);
-console.log("Expected:", USERS[house]);
+
+    console.log("House:", house);
+    console.log("Username:", username);
+    console.log("Password:", password);
+    console.log("User object:", USERS[house]);
+
     if (
         username === USERS[house].username &&
         password === USERS[house].password
     ) {
-
-        document.getElementById("loginPage").style.display = "none";
-        document.getElementById("dashboard").style.display = "block";
-
-        error.textContent = "";
-
+        alert("SUCCESS");
     } else {
-
-        error.textContent = "❌ Incorrect Username or Password";
-
+        alert("FAILED");
     }
-
 }
 console.log("JS.WORKING"); 
 const app = {
