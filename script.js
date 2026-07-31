@@ -17,7 +17,6 @@ const USERS = {
     "House 4": { username: "house4", password: "4567" },
     "House 5": { username: "house5", password: "5678" }
 };
-};
 function login() {
 
     const house = document.getElementById("houseSelect").value;
