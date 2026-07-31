@@ -642,59 +642,60 @@ Excellent
 <!-- FLOATING AI ASSISTANT -->
 <!-- ========================================= -->
 
-<div id="assistant">
+<div id="assistantContainer">
 
-    <div class="assistantHeader">
+    <button id="aivaToggle">❯</button>
 
-        <div class="assistantAvatar">
-            🤖
+    <div id="assistant">
+
+        <div class="assistantHeader">
+
+            <div class="assistantAvatar">
+                🤖
+            </div>
+
+            <div>
+
+                <h3>AIVA</h3>
+
+                <span>Artificial Intelligent Virtual Assistant</span>
+
+            </div>
+
         </div>
 
-        <div>
+        <div id="chat">
 
-            <h3>AIVA</h3>
+            <div class="aiMessage">
+                👋 Welcome Home!
+            </div>
 
-            <span>Artificial Intelligent Virtual Assistant</span>
+            <div class="aiMessage">
+                All systems are functioning normally.
+            </div>
 
         </div>
 
-    </div>
+        <div class="assistantInput">
 
-    <div id="chat">
+            <input
+                id="aiInput"
+                type="text"
+                placeholder="Ask AIVA anything...">
 
-        <div class="aiMessage">
-            👋 Welcome Home!
+            <button onclick="sendAI()">
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+
+            <button onclick="startVoiceRecognition()">
+                <i class="fa-solid fa-microphone"></i>
+            </button>
+
         </div>
-
-        <div class="aiMessage">
-            All systems are functioning normally.
-        </div>
-
-    </div>
-
-    <div class="assistantInput">
-
-        <input
-            id="aiInput"
-            type="text"
-            placeholder="Ask AIVA anything...">
-
-        <button onclick="sendAI()">
-
-            <i class="fa-solid fa-paper-plane"></i>
-
-        </button>
-
-        <button onclick="startVoiceRecognition()">
-
-            <i class="fa-solid fa-microphone"></i>
-
-        </button>
 
     </div>
 
 </div>
-
 
 
 <!-- ========================================= -->
