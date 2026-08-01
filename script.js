@@ -4309,7 +4309,9 @@ function refreshDashboard(){
 
     set("water",Math.round(state.water)+"%");
 
-    set("temperature",state.temperature.toFixed(1)+"°C");
+    if (state.weather) {
+    set("temperature", state.weather.temperature_2m + "°C");
+}
 
     set("powerStatus",
 
