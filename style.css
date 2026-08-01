@@ -39,6 +39,36 @@
 
 }
 
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#081229,#0d1f3d,#102d58);
+    color:white;
+}
+
+.card{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+
+button{
+    background:linear-gradient(90deg,#00b4ff,#00ffb3);
+    color:white;
+    border:none;
+    border-radius:12px;
+    padding:12px 24px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 20px #00b4ff;
+}
+
 /* ---------- RESET ---------- */
 
 *{
